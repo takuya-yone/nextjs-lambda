@@ -34,11 +34,11 @@ RUN yarn build
 
 
 ############################
-# FROM amazon/aws-lambda-nodejs:18.2023.06.16.13 AS runner
-# COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0-aarch64 /lambda-adapter /opt/extensions/lambda-adapter
-#######
-FROM amazon/aws-lambda-nodejs:18 AS runner
+FROM amazon/aws-lambda-nodejs:18.2023.06.16.13 AS runner
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
+#######
+# FROM amazon/aws-lambda-nodejs:18 AS runner
+# COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
 ############################
 # FROM base AS runner
 # RUN addgroup --system --gid 1001 nodejs
