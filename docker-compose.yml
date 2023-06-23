@@ -1,0 +1,7 @@
+version: '3'
+services:
+  nextjs:
+    build: .
+    ports:
+    - "3000:3000"
+    image: 151268123722.dkr.ecr.ap-northeast-1.amazonaws.com/nextjs-lambda:latest
