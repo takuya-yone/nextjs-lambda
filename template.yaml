@@ -17,6 +17,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       PackageType: Image
+      MemorySize: 512
       Architectures:
       - arm64
       Events:
