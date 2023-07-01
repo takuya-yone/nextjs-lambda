@@ -3,7 +3,7 @@
 // app/layout.tsx
 
 import { Grid, GridItem, useColorModeValue } from '@chakra-ui/react'
-import { Providers } from './providers'
+import { Providers } from '@/app/providers'
 import { Header } from '@/app/component/Header'
 import { Footer } from '@/app/component/Footer'
 
