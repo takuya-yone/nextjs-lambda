@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "lint:fix": "yarn lint --fix",
-    "format": "prettier --write 'src/**/*.{ts,tsx}'"
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.1.4",
@@ -35,7 +37,16 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "@storybook/addon-essentials": "^7.0.24",
+    "@storybook/addon-interactions": "^7.0.24",
+    "@storybook/addon-links": "^7.0.24",
+    "@storybook/blocks": "^7.0.24",
+    "@storybook/nextjs": "^7.0.24",
+    "@storybook/react": "^7.0.24",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "eslint-plugin-storybook": "^0.6.12",
+    "prettier": "^2.8.8",
+    "storybook": "^7.0.24"
   },
   "volta": {
     "node": "18.16.1"

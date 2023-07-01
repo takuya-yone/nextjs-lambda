@@ -2,10 +2,10 @@
 
 // app/layout.tsx
 
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem, useColorModeValue } from '@chakra-ui/react'
 import { Providers } from './providers'
-import { Header } from 'src/app/component/header'
-import { Footer } from 'src/app/component/footer'
+import { Header } from '@/app/component/Header'
+import { Footer } from '@/app/component/Footer'
 
 export default function RootLayout({
   children,
@@ -25,14 +25,24 @@ export default function RootLayout({
             h="0px"
             gap="0"
           >
-            <GridItem pl="10" bg="orange.300" area={'header'}>
-              <Header />
+            <GridItem pl="0" bg="orange.300" area={'header'}>
+              <Header
+                label="hjhjhj"
+                bgColor="facebook.400"
+                textColor="white"
+                fontSize="2xl"
+              />
             </GridItem>
             <GridItem pl="0" bg="green.100" area={'main'} height={'auto'}>
               {children}
             </GridItem>
-            <GridItem pl="10" bg="blue.300" area={'footer'}>
-              <Footer />
+            <GridItem pl="0" bg="blue.300" area={'footer'}>
+              <Footer
+                label="© 2022 Chakra Templates. All rights reserved"
+                bgColor={useColorModeValue('gray.50', 'gray.900')}
+                textColor="gray.900"
+                fontSize="md"
+              />
             </GridItem>
           </Grid>
         </Providers>

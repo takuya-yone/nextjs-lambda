@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { ReactNode } from 'react'
+import { BackgroundProps, TypographyProps, ColorProps } from '@chakra-ui/react'
 
 const SocialButton = ({
   children,
@@ -47,12 +48,23 @@ const SocialButton = ({
   )
 }
 
-export function Footer() {
+interface FooterProps {
+  label: string
+  bgColor: BackgroundProps['bg']
+  textColor: ColorProps['color']
+  fontSize: TypographyProps['fontSize']
+  onClick?: () => void
+}
+
+export function Footer({
+  label,
+  bgColor,
+  textColor,
+  fontSize,
+  onClick,
+}: FooterProps) {
   return (
-    <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
-    >
+    <Box bg={bgColor}>
       <Container
         as={Stack}
         maxW={'6xl'}
@@ -62,7 +74,9 @@ export function Footer() {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}
       >
-        <Text>© 2022 Chakra Templates. All rights reserved</Text>
+        <Text fontSize={fontSize} color={textColor}>
+          {label}
+        </Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />
