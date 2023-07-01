@@ -6,8 +6,8 @@ import * as React from 'react'
 
 // 1. import `ChakraProvider` component
 
-import { Header } from '../component/header'
-import { Footer } from '../component/footer'
+import { Header } from 'src/app/component/header'
+import { Footer } from 'src/app/component/footer'
 import {
   Box,
   Heading,

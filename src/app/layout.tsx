@@ -4,8 +4,8 @@
 
 import { Grid, GridItem } from '@chakra-ui/react'
 import { Providers } from './providers'
-import { Header } from './component/header'
-import { Footer } from './component/footer'
+import { Header } from 'src/app/component/header'
+import { Footer } from 'src/app/component/footer'
 
 export default function RootLayout({
   children,
