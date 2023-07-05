@@ -44,7 +44,20 @@ Resources:
             OriginSSLProtocols: 
             - "TLSv1.2"
           DomainName: !Sub ${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com
-          Id: !GetAtt ServerlessHttpApi.ApiId
+          Id: 'NextjsAPIGW'
+          OriginPath: ""
+        - ConnectionAttempts: 3
+          ConnectionTimeout: 10
+          CustomOriginConfig: 
+            HTTPPort: 80
+            HTTPSPort: 443
+            OriginKeepaliveTimeout: 5
+            OriginProtocolPolicy: "https-only"
+            OriginReadTimeout: 30
+            OriginSSLProtocols: 
+            - "TLSv1.2"
+          DomainName: !ImportValue NestjsApiDomain
+          Id: 'NestjsAPIGW'
           OriginPath: ""
         DefaultCacheBehavior: 
           AllowedMethods: 
@@ -57,7 +70,18 @@ Resources:
           CachePolicyId: "658327ea-f89d-4fab-a63d-7e88639e58f6"
           OriginRequestPolicyId: "b689b0a8-53d0-40ab-baf2-68738e2966ac"
           SmoothStreaming: false
-          TargetOriginId: !Ref ServerlessHttpApi
+          TargetOriginId: "NestjsAPIGW"
+          ViewerProtocolPolicy: "allow-all"
+        CacheBehaviors: 
+        - AllowedMethods: 
+          - "HEAD"
+          - "GET"
+          Compress: true
+          CachePolicyId: "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+          OriginRequestPolicyId: "b689b0a8-53d0-40ab-baf2-68738e2966ac"
+          PathPattern: "/api/*"
+          SmoothStreaming: false
+          TargetOriginId: "NestjsAPIGW"
           ViewerProtocolPolicy: "allow-all"
         Comment: ""
         PriceClass: "PriceClass_All"
@@ -80,6 +104,16 @@ Outputs:
   NextjsApi:
     Description: API Gateway endpoint URL
     Value: !GetAtt ServerlessHttpApi.ApiEndpoint
+  NextjsApiDomain:
+    Description: API Gateway endpoint Domain
+    Value: !Sub "${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+    Export:
+      Name: NextjsApiDomain
+  NextjsApiAppId:
+    Description: API Gateway AppId
+    Value: !GetAtt ServerlessHttpApi.ApiId
+    Export:
+      Name: NextjsApiAppId
   CloudFront:
     Description: CloudFront Distribution URL
     Value: !Sub "https://${CloudFrontDistribution.DomainName}"
