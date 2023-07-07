@@ -70,7 +70,7 @@ Resources:
           CachePolicyId: "658327ea-f89d-4fab-a63d-7e88639e58f6"
           OriginRequestPolicyId: "b689b0a8-53d0-40ab-baf2-68738e2966ac"
           SmoothStreaming: false
-          TargetOriginId: "NestjsAPIGW"
+          TargetOriginId: "NextjsAPIGW"
           ViewerProtocolPolicy: "allow-all"
         CacheBehaviors: 
         - AllowedMethods: 
