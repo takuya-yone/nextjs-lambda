@@ -19,7 +19,7 @@ import {
   useColorModeValue,
   createIcon,
 } from '@chakra-ui/react'
-import { Montserrat, Noto_Sans_JP, Caveat } from "next/font/google"
+import { Montserrat, Noto_Sans_JP, Caveat } from 'next/font/google'
 
 const caveat = Caveat({
   subsets: ['latin'],

@@ -17,15 +17,16 @@ export default function RootLayout({
       <body>
         <Providers>
           <Grid
-            templateAreas={`"header header"
-                            "nav main"
-                            "footer footer"`}
-            gridTemplateColumns={{ base: '0fr' }}
-            gridTemplateRows={{ base: '1fr 3fr 1fr' }}
-            h="0px"
+            templateAreas={`"header"
+                            "main"
+                            "footer"`}
+            // gridTemplateColumns={{ base: '0fr' }}
+            gridTemplateRows={{ base: '0fr 1fr 0fr' }}
+            // h="0px"
+            minHeight={'100vh'}
             gap="0"
           >
-            <GridItem pl="0" bg="orange.300" area={'header'}>
+            <GridItem pl="0" area={'header'}>
               <Header
                 label="hjhjhj"
                 bgColor="facebook.400"
@@ -33,7 +34,12 @@ export default function RootLayout({
                 fontSize="2xl"
               />
             </GridItem>
-            <GridItem pl="0" bg="green.100" area={'main'} height={'auto'}>
+            <GridItem
+              pl="0"
+              bg="green.100"
+              area={'main'}
+              // height={'max-content'}
+            >
               {children}
             </GridItem>
             <GridItem pl="0" bg="blue.300" area={'footer'}>
